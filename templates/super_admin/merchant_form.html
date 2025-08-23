@@ -66,7 +66,7 @@
 
         <ul class="menu-inner py-1">
           <li class="menu-item">
-            <a href="{{ url('super_admin_dashboard') }}" class="menu-link">
+            <a href="{% url 'sneat_app:super_admin_dashboard' %}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
               <div data-i18n="Analytics">Dashboard</div>
             </a>
@@ -78,12 +78,12 @@
             </a>
             <ul class="menu-sub">
               <li class="menu-item">
-                <a href="{{ url('merchant_list') }}" class="menu-link">
+                <a href="{% url 'sneat_app:merchant_list' %}" class="menu-link">
                   <div data-i18n="Without menu">View All Merchants</div>
                 </a>
               </li>
               <li class="menu-item active">
-                <a href="{{ url('merchant_add') }}" class="menu-link">
+                <a href="{% url 'sneat_app:merchant_add' %}" class="menu-link">
                   <div data-i18n="Without navbar">Add Merchant</div>
                 </a>
               </li>
@@ -96,19 +96,19 @@
             </a>
             <ul class="menu-sub">
               <li class="menu-item">
-                <a href="{{ url('transaction_list') }}" class="menu-link">
+                <a href="{% url 'sneat_app:transaction_list' %}" class="menu-link">
                   <div data-i18n="Without menu">View All Transactions</div>
                 </a>
               </li>
               <li class="menu-item">
-                <a href="{{ url('transaction_add') }}" class="menu-link">
+                <a href="{% url 'sneat_app:transaction_add' %}" class="menu-link">
                   <div data-i18n="Without navbar">Add Transaction</div>
                 </a>
               </li>
             </ul>
           </li>
           <li class="menu-item">
-            <a href="{{ url('reports') }}" class="menu-link">
+            <a href="{% url 'sneat_app:reports' %}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-chart"></i>
               <div data-i18n="Analytics">Reports</div>
             </a>
@@ -120,7 +120,7 @@
             </a>
             <ul class="menu-sub">
               <li class="menu-item">
-                <a href="{{ url('settings_profile') }}" class="menu-link">
+                <a href="{% url 'sneat_app:settings_profile' %}" class="menu-link">
                   <div data-i18n="Without menu">Profile</div>
                 </a>
               </li>
@@ -174,13 +174,13 @@
                     <div class="dropdown-divider"></div>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="{{ url('settings_profile') }}">
+                    <a class="dropdown-item" href="{% url 'sneat_app:settings_profile' %}">
                       <i class="bx bx-user me-2"></i>
                       <span class="align-middle">My Profile</span>
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="{{ url('logout') }}">
+                    <a class="dropdown-item" href="{% url 'sneat_app:logout' %}">
                       <i class="bx bx-power-off me-2"></i>
                       <span class="align-middle">Log Out</span>
                     </a>
@@ -203,9 +203,81 @@
                   <h5 class="mb-0">{{ title }}</h5>
                 </div>
                 <div class="card-body">
-                  <form method="post">
+                  <form method="POST">
                     {% csrf_token %}
                     
+                    <!-- User Information -->
+                    <h6 class="mb-3 text-muted">User Information</h6>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="id_username" class="form-label">Username</label>
+                        {{ form.username }}
+                        {% if form.username.help_text %}
+                          <div class="form-text">{{ form.username.help_text }}</div>
+                        {% endif %}
+                        {% if form.username.errors %}
+                          <div class="invalid-feedback d-block">
+                            {% for error in form.username.errors %}
+                              {{ error }}
+                            {% endfor %}
+                          </div>
+                        {% endif %}
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="id_email" class="form-label">Email</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                          <div class="invalid-feedback d-block">
+                            {% for error in form.email.errors %}
+                              {{ error }}
+                            {% endfor %}
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="id_first_name" class="form-label">First Name</label>
+                        {{ form.first_name }}
+                        {% if form.first_name.errors %}
+                          <div class="invalid-feedback d-block">
+                            {% for error in form.first_name.errors %}
+                              {{ error }}
+                            {% endfor %}
+                          </div>
+                        {% endif %}
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="id_last_name" class="form-label">Last Name</label>
+                        {{ form.last_name }}
+                        {% if form.last_name.errors %}
+                          <div class="invalid-feedback d-block">
+                            {% for error in form.last_name.errors %}
+                              {{ error }}
+                            {% endfor %}
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="id_password" class="form-label">Password</label>
+                      {{ form.password }}
+                      {% if form.password.help_text %}
+                        <div class="form-text">{{ form.password.help_text }}</div>
+                      {% endif %}
+                      {% if form.password.errors %}
+                        <div class="invalid-feedback d-block">
+                          {% for error in form.password.errors %}
+                            {{ error }}
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                    </div>
+
+                    <!-- Business Information -->
+                    <h6 class="mb-3 text-muted mt-4">Business Information</h6>
                     <div class="row">
                       <div class="col-md-6 mb-3">
                         <label for="id_business_name" class="form-label">Business Name</label>
@@ -244,7 +316,7 @@
                     </div>
 
                     <div class="d-flex justify-content-between">
-                      <a href="{{ url('merchant_list') }}" class="btn btn-outline-secondary">Cancel</a>
+                      <a href="{% url 'sneat_app:merchant_list' %}" class="btn btn-outline-secondary">Cancel</a>
                       <button type="submit" class="btn btn-primary">{{ 'Update' if merchant else 'Create' }} Merchant</button>
                     </div>
                   </form>

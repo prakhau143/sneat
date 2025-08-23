@@ -37,16 +37,24 @@ def unified_login(request):
             user = form.get_user()
             login(request, user)
             
-            # Redirect based on user type
+            # Debug: Print user info
+            print(f"Login successful for user: {user.username}")
+            print(f"Is superuser: {user.is_superuser}")
+            print(f"Is staff: {user.is_staff}")
+            
+            # Redirect based on user type with explicit URL
             if user.is_superuser:
                 messages.success(request, f'Welcome back, Super Admin {user.username}!')
-                return redirect('sneat_app:super_admin_dashboard')
+                print("Redirecting to superadmin dashboard")
+                return redirect('/super-admin/dashboard/')
             elif user.is_staff:
                 messages.success(request, f'Welcome back, Merchant {user.get_full_name()}!')
                 return redirect('sneat_app:merchant_dashboard')
             else:
                 messages.success(request, f'Welcome back, {user.get_full_name()}!')
                 return redirect('sneat_app:user_dashboard')
+        else:
+            print(f"Login form errors: {form.errors}")
     else:
         form = UnifiedLoginForm()
     
@@ -121,25 +129,37 @@ def merchant_dashboard(request):
 @login_required
 @user_passes_test(is_superuser)
 def super_admin_dashboard(request):
-    # Get statistics
-    total_merchants = Merchant.objects.count()
-    active_merchants = Merchant.objects.filter(status='active').count()
-    total_transactions = Transaction.objects.count()
-    total_revenue = Transaction.objects.filter(type='credit').aggregate(Sum('amount'))['amount__sum'] or 0
-    
-    # Recent data
-    recent_merchants = Merchant.objects.all()[:5]
-    recent_transactions = Transaction.objects.all()[:5]
-    
-    context = {
-        'total_merchants': total_merchants,
-        'active_merchants': active_merchants,
-        'total_transactions': total_transactions,
-        'total_revenue': total_revenue,
-        'recent_merchants': recent_merchants,
-        'recent_transactions': recent_transactions,
-    }
-    return render(request, 'super_admin/dashboard.html', context)
+    try:
+        # Debug: Print user info
+        print(f"Superadmin dashboard accessed by: {request.user.username}")
+        print(f"User is superuser: {request.user.is_superuser}")
+        
+        # Get statistics
+        total_merchants = Merchant.objects.count()
+        active_merchants = Merchant.objects.filter(status='active').count()
+        total_transactions = Transaction.objects.count()
+        total_revenue = Transaction.objects.filter(type='credit').aggregate(Sum('amount'))['amount__sum'] or 0
+        
+        # Recent data
+        recent_merchants = Merchant.objects.all()[:5]
+        recent_transactions = Transaction.objects.all()[:5]
+        
+        context = {
+            'total_merchants': total_merchants,
+            'active_merchants': active_merchants,
+            'total_transactions': total_transactions,
+            'total_revenue': total_revenue,
+            'recent_merchants': recent_merchants,
+            'recent_transactions': recent_transactions,
+        }
+        
+        print(f"Dashboard context: {context}")
+        return render(request, 'super_admin/dashboard.html', context)
+        
+    except Exception as e:
+        print(f"Error in superadmin dashboard: {e}")
+        messages.error(request, f'Dashboard error: {e}')
+        return redirect('sneat_app:unified_login')
 
 @login_required
 @user_passes_test(is_superuser)
@@ -178,11 +198,26 @@ def merchant_add(request):
     if request.method == 'POST':
         form = MerchantForm(request.POST)
         if form.is_valid():
-            merchant = form.save(commit=False)
-            # Note: In a real app, you'd create the user and profile here
-            merchant.save()
-            messages.success(request, 'Merchant added successfully!')
-            return redirect('sneat_app:merchant_list')
+            try:
+                # Create the user first
+                user = User.objects.create_user(
+                    username=form.cleaned_data['username'],
+                    email=form.cleaned_data['email'],
+                    first_name=form.cleaned_data['first_name'],
+                    last_name=form.cleaned_data['last_name'],
+                    password=form.cleaned_data['password'],
+                    is_staff=True  # Make them staff so they can access merchant dashboard
+                )
+                
+                # Create the merchant profile
+                merchant = form.save(commit=False)
+                merchant.user = user
+                merchant.save()
+                
+                messages.success(request, f'Merchant {user.get_full_name()} added successfully!')
+                return redirect('sneat_app:merchant_list')
+            except Exception as e:
+                messages.error(request, f'Error creating merchant: {str(e)}')
     else:
         form = MerchantForm()
     
@@ -197,9 +232,27 @@ def merchant_edit(request, merchant_id):
     if request.method == 'POST':
         form = MerchantForm(request.POST, instance=merchant)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Merchant updated successfully!')
-            return redirect('sneat_app:merchant_list')
+            try:
+                # Update the user information
+                user = merchant.user
+                user.username = form.cleaned_data['username']
+                user.email = form.cleaned_data['email']
+                user.first_name = form.cleaned_data['first_name']
+                user.last_name = form.cleaned_data['last_name']
+                
+                # Update password if provided
+                if form.cleaned_data['password']:
+                    user.set_password(form.cleaned_data['password'])
+                
+                user.save()
+                
+                # Update the merchant information
+                form.save()
+                
+                messages.success(request, f'Merchant {user.get_full_name()} updated successfully!')
+                return redirect('sneat_app:merchant_list')
+            except Exception as e:
+                messages.error(request, f'Error updating merchant: {str(e)}')
     else:
         form = MerchantForm(instance=merchant)
     

@@ -64,6 +64,28 @@ class UserRegistrationForm(UserCreationForm):
         self.fields['password2'].widget.attrs.update({'class': 'form-control'})
 
 class MerchantForm(forms.ModelForm):
+    # User fields
+    username = forms.CharField(
+        max_length=150,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'
+    )
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={'class': 'form-control'})
+    )
+    first_name = forms.CharField(
+        max_length=30,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    last_name = forms.CharField(
+        max_length=30,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        help_text='Leave blank to keep current password (for editing)'
+    )
+    
     class Meta:
         model = Merchant
         fields = ['business_name', 'business_address', 'status']
@@ -72,6 +94,45 @@ class MerchantForm(forms.ModelForm):
             'business_address': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
             'status': forms.Select(attrs={'class': 'form-select'}),
         }
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance and self.instance.pk:
+            # Editing existing merchant - populate user fields
+            self.fields['username'].initial = self.instance.user.username
+            self.fields['email'].initial = self.instance.user.email
+            self.fields['first_name'].initial = self.instance.user.first_name
+            self.fields['last_name'].initial = self.instance.user.last_name
+            self.fields['password'].required = False
+        else:
+            # Creating new merchant - password is required
+            self.fields['password'].required = True
+    
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if self.instance and self.instance.pk:
+            # Editing - check if username changed and if it's unique
+            if username != self.instance.user.username:
+                if User.objects.filter(username=username).exists():
+                    raise forms.ValidationError('A user with this username already exists.')
+        else:
+            # Creating - check if username is unique
+            if User.objects.filter(username=username).exists():
+                raise forms.ValidationError('A user with this username already exists.')
+        return username
+    
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if self.instance and self.instance.pk:
+            # Editing - check if email changed and if it's unique
+            if email != self.instance.user.email:
+                if User.objects.filter(email=email).exists():
+                    raise forms.ValidationError('A user with this email already exists.')
+        else:
+            # Creating - check if email is unique
+            if User.objects.filter(email=email).exists():
+                raise forms.ValidationError('A user with this email already exists.')
+        return email
 
 class TransactionForm(forms.ModelForm):
     class Meta:

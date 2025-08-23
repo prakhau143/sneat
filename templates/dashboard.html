@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Sneat Admin{% endblock %}
+
+{% block content %}
+<h4 class="py-3 mb-4">
+    <span class="text-muted fw-light">Dashboards /</span> Analytics
+</h4>
+
+<div class="row">
+    <div class="col-lg-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="card-info">
+                        <p class="card-text">Total Sales</p>
+                        <div class="d-flex align-items-end mb-2">
+                            <h4 class="card-title mb-0">$21,349</h4>
+                            <small class="text-success ms-2">
+                                <i class="bx bx-up-arrow-alt"></i>
+                                +28.14%
+                            </small>
+                        </div>
+                        <small>12.68k increase</small>
+                    </div>
+                    <div class="card-icon">
+                        <span class="badge bg-label-primary rounded p-2">
+                            <i class="bx bx-dollar text-primary"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="card-info">
+                        <p class="card-text">Total Orders</p>
+                        <div class="d-flex align-items-end mb-2">
+                            <h4 class="card-title mb-0">2,856</h4>
+                            <small class="text-success ms-2">
+                                <i class="bx bx-up-arrow-alt"></i>
+                                +18.2%
+                            </small>
+                        </div>
+                        <small>2.4k increase</small>
+                    </div>
+                    <div class="card-icon">
+                        <span class="badge bg-label-info rounded p-2">
+                            <i class="bx bx-shopping-bag text-info"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="card-info">
+                        <p class="card-text">Total Customers</p>
+                        <div class="d-flex align-items-end mb-2">
+                            <h4 class="card-title mb-0">28.5k</h4>
+                            <small class="text-success ms-2">
+                                <i class="bx bx-up-arrow-alt"></i>
+                                +24.6%
+                            </small>
+                        </div>
+                        <small>5.5k increase</small>
+                    </div>
+                    <div class="card-icon">
+                        <span class="badge bg-label-warning rounded p-2">
+                            <i class="bx bx-user text-warning"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="card-info">
+                        <p class="card-text">Total Revenue</p>
+                        <div class="d-flex align-items-end mb-2">
+                            <h4 class="card-title mb-0">$48.2k</h4>
+                            <small class="text-danger ms-2">
+                                <i class="bx bx-down-arrow-alt"></i>
+                                -2.15%
+                            </small>
+                        </div>
+                        <small>1.2k decrease</small>
+                    </div>
+                    <div class="card-icon">
+                        <span class="badge bg-label-success rounded p-2">
+                            <i class="bx bx-trending-up text-success"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title m-0">Sales Analytics</h5>
+                <div class="dropdown">
+                    <button class="btn p-0" type="button" id="analyticsOptions" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="analyticsOptions">
+                        <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="avatar">
+                                    <span class="avatar-initial rounded bg-label-primary">
+                                        <i class="bx bx-mobile-alt"></i>
+                                    </span>
+                                </div>
+                                <div class="card-info">
+                                    <h5 class="mb-0">8,458</h5>
+                                    <small>Mobile</small>
+                                </div>
+                            </div>
+                            <h5 class="text-success mb-0">+28%</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="avatar">
+                                    <span class="avatar-initial rounded bg-label-success">
+                                        <i class="bx bx-desktop"></i>
+                                    </span>
+                                </div>
+                                <div class="card-info">
+                                    <h5 class="mb-0">28.5k</h5>
+                                    <small>Desktop</small>
+                                </div>
+                            </div>
+                            <h5 class="text-success mb-0">+48%</h5>
+                        </div>
+                    </div>
+                </div>
+                <div id="analyticsChart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <div>
+                    <h4 class="card-title mb-0">Statistics</h4>
+                    <small class="text-muted">Updated 1 month ago</small>
+                </div>
+                <div class="dropdown">
+                    <button class="btn p-0" type="button" id="statisticsOptions" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="statisticsOptions">
+                        <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">
+                            <span class="avatar-initial rounded bg-label-warning">
+                                <i class="bx bx-pie-chart-alt"></i>
+                            </span>
+                        </div>
+                        <div class="card-info">
+                            <h5 class="mb-0">$2,856</h5>
+                            <small>Sales</small>
+                        </div>
+                    </div>
+                    <h5 class="text-success mb-0">+68%</h5>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">
+                            <span class="avatar-initial rounded bg-label-info">
+                                <i class="bx bx-user"></i>
+                            </span>
+                        </div>
+                        <div class="card-info">
+                            <h5 class="mb-0">856</h5>
+                            <small>Customers</small>
+                        </div>
+                    </div>
+                    <h5 class="text-success mb-0">+42%</h5>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">
+                            <span class="avatar-initial rounded bg-label-danger">
+                                <i class="bx bx-cart"></i>
+                            </span>
+                        </div>
+                        <div class="card-info">
+                            <h5 class="mb-0">1,258</h5>
+                            <small>Orders</small>
+                        </div>
+                    </div>
+                    <h5 class="text-success mb-0">+18%</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-12 mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title m-0">Recent Orders</h5>
+                <button type="button" class="btn btn-sm btn-outline-primary">View All</button>
+            </div>
+            <div class="table-responsive text-nowrap">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        <tr>
+                            <td><strong>#6976</strong></td>
+                            <td>Dec 12, 2023</td>
+                            <td><span class="badge bg-label-success me-1">Completed</span></td>
+                            <td>$35.50</td>
+                        </tr>
+                        <tr>
+                            <td><strong>#6975</strong></td>
+                            <td>Dec 11, 2023</td>
+                            <td><span class="badge bg-label-warning me-1">Pending</span></td>
+                            <td>$23.90</td>
+                        </tr>
+                        <tr>
+                            <td><strong>#6974</strong></td>
+                            <td>Dec 10, 2023</td>
+                            <td><span class="badge bg-label-danger me-1">Cancelled</span></td>
+                            <td>$65.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>#6973</strong></td>
+                            <td>Dec 09, 2023</td>
+                            <td><span class="badge bg-label-success me-1">Completed</span></td>
+                            <td>$78.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

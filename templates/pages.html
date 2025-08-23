@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}Pages - Sneat Admin{% endblock %}
+
+{% block content %}
+<h4 class="py-3 mb-4">
+    <span class="text-muted fw-light">Pages /</span> Examples
+</h4>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <h5 class="card-header">Account Settings</h5>
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="avatar avatar-lg me-3">
+                        <img src="{{ static('assets/img/avatars/1.png') }}" alt="Avatar" class="rounded-circle" />
+                    </div>
+                    <div>
+                        <h6 class="mb-0">John Doe</h6>
+                        <small class="text-muted">john.doe@example.com</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" value="John Doe" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" value="john.doe@example.com" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone</label>
+                    <input type="tel" class="form-control" value="+1 (555) 000-0000" />
+                </div>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <h5 class="card-header">Notifications</h5>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="emailNotif" checked />
+                        <label class="form-check-label" for="emailNotif">
+                            Email notifications
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="smsNotif" />
+                        <label class="form-check-label" for="smsNotif">
+                            SMS notifications
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="pushNotif" checked />
+                        <label class="form-check-label" for="pushNotif">
+                            Push notifications
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="marketingNotif" />
+                        <label class="form-check-label" for="marketingNotif">
+                            Marketing emails
+                        </label>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <h5 class="card-header">Security</h5>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Current Password</label>
+                    <input type="password" class="form-control" placeholder="Enter current password" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">New Password</label>
+                    <input type="password" class="form-control" placeholder="Enter new password" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Confirm New Password</label>
+                    <input type="password" class="form-control" placeholder="Confirm new password" />
+                </div>
+                <button type="button" class="btn btn-primary">Change Password</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <h5 class="card-header">Connections</h5>
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="d-flex align-items-center">
+                        <i class="bx bxl-google text-danger me-2" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <h6 class="mb-0">Google</h6>
+                            <small class="text-muted">john.doe@gmail.com</small>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-danger btn-sm">Disconnect</button>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="d-flex align-items-center">
+                        <i class="bx bxl-facebook text-primary me-2" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <h6 class="mb-0">Facebook</h6>
+                            <small class="text-muted">john.doe@facebook.com</small>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary btn-sm">Connect</button>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <i class="bx bxl-twitter text-info me-2" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <h6 class="mb-0">Twitter</h6>
+                            <small class="text-muted">@johndoe</small>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-info btn-sm">Connect</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

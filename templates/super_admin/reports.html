@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 mb-4">
+        <span class="text-muted fw-light">Reports /</span> Analytics Dashboard
+    </h4>
+
+    <!-- Revenue Statistics -->
+    <div class="row">
+        <div class="col-lg-4 col-md-4 order-1">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="{{ static('assets/img/icons/unicons/wallet-info.png') }}" alt="Credit Card" class="rounded" />
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
+                                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <span>Total Revenue</span>
+                            <h3 class="card-title text-nowrap mb-1">${{ total_revenue|floatformat:2 }}</h3>
+                            <small class="text-success fw-semibold"><i class='bx bx-up-arrow-alt'></i> +28.14%</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="{{ static('assets/img/icons/unicons/cc-warning.png') }}" alt="Credit Card" class="rounded" />
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0" type="button" id="cardOpt5" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt5">
+                                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="d-block mb-1">Total Debits</span>
+                            <h3 class="card-title text-nowrap mb-2">${{ total_debits|floatformat:2 }}</h3>
+                            <small class="text-danger fw-semibold"><i class='bx bx-down-arrow-alt'></i> -14.82%</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 order-1">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="{{ static('assets/img/icons/unicons/chart-success.png') }}" alt="chart success" class="rounded" />
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
+                                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="fw-semibold d-block mb-1">Net Revenue</span>
+                            <h3 class="card-title mb-2">${{ net_revenue|floatformat:2 }}</h3>
+                            <small class="text-success fw-semibold"><i class='bx bx-up-arrow-alt'></i> +72.80%</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="{{ static('assets/img/icons/unicons/paypal.png') }}" alt="Credit Card" class="rounded" />
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="d-block mb-1">Total Transactions</span>
+                            <h3 class="card-title text-nowrap mb-2">{{ total_transactions }}</h3>
+                            <small class="text-success fw-semibold"><i class='bx bx-up-arrow-alt'></i> +28.14%</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Merchant Statistics -->
+    <div class="row">
+        <div class="col-lg-4 col-md-4 order-1">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="{{ static('assets/img/icons/unicons/chart-success.png') }}" alt="chart success" class="rounded" />
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
+                                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="fw-semibold d-block mb-1">Active Merchants</span>
+                            <h3 class="card-title mb-2">{{ active_merchants }}</h3>
+                            <small class="text-success fw-semibold"><i class='bx bx-up-arrow-alt'></i> +72.80%</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="{{ static('assets/img/icons/unicons/cc-warning.png') }}" alt="Credit Card" class="rounded" />
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0" type="button" id="cardOpt5" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt5">
+                                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="d-block mb-1">Inactive Merchants</span>
+                            <h3 class="card-title text-nowrap mb-2">{{ inactive_merchants }}</h3>
+                            <small class="text-danger fw-semibold"><i class='bx bx-down-arrow-alt'></i> -14.82%</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 order-1">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="{{ static('assets/img/icons/unicons/chart-success.png') }}" alt="chart success" class="rounded" />
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
+                                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="fw-semibold d-block mb-1">Credit Transactions</span>
+                            <h3 class="card-title mb-2">{{ credit_transactions }}</h3>
+                            <small class="text-success fw-semibold"><i class='bx bx-up-arrow-alt'></i> +72.80%</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="{{ static('assets/img/icons/unicons/cc-warning.png') }}" alt="Credit Card" class="rounded" />
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0" type="button" id="cardOpt5" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt5">
+                                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="d-block mb-1">Debit Transactions</span>
+                            <h3 class="card-title text-nowrap mb-2">{{ debit_transactions }}</h3>
+                            <small class="text-danger fw-semibold"><i class='bx bx-down-arrow-alt'></i> -14.82%</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Merchants by Revenue -->
+    <div class="row">
+        <div class="col-12 mb-4">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title m-0 me-2">Top Merchants by Revenue</h5>
+                    <div class="dropdown">
+                        <button class="btn p-0" type="button" id="topMerchantsOptions" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bx bx-dots-vertical rounded"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="topMerchantsOptions">
+                            <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th>Rank</th>
+                                            <th>Merchant</th>
+                                            <th>Business</th>
+                                            <th>Total Revenue</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for merchant in top_merchants %}
+                                        <tr>
+                                            <td>
+                                                <span class="badge bg-label-primary">#{{ forloop.counter }}</span>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <div class="avatar-wrapper">
+                                                        <div class="avatar avatar-sm me-3">
+                                                            <span class="avatar-initial rounded bg-label-primary">{{ merchant.name|first|upper }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <h6 class="mb-0">{{ merchant.name }}</h6>
+                                                        <small class="text-muted">{{ merchant.email }}</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{ merchant.business_name }}</td>
+                                            <td>
+                                                <span class="fw-semibold text-success">
+                                                    ${{ merchant.total_revenue|default:0|floatformat:2 }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-label-{% if merchant.status == 'active' %}success{% else %}danger{% endif %} me-1">
+                                                    {{ merchant.status|title }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        {% empty %}
+                                        <tr>
+                                            <td colspan="5" class="text-center py-4">
+                                                <div class="d-flex flex-column align-items-center">
+                                                    <i class="bx bx-store bx-lg text-muted mb-2"></i>
+                                                    <p class="text-muted mb-0">No merchants found</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Content -->
+{% endblock %}

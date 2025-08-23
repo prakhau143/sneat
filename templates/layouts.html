@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}Layouts - Sneat Admin{% endblock %}
+
+{% block content %}
+<h4 class="py-3 mb-4">
+    <span class="text-muted fw-light">Layouts /</span> Examples
+</h4>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <h5 class="card-header">Layout Options</h5>
+            <div class="card-body">
+                <div class="mb-3">
+                    <h6>Container Layout</h6>
+                    <p class="text-muted">Fixed width container with max-width constraints.</p>
+                    <div class="border rounded p-3 bg-light">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4 bg-primary text-white p-2 rounded">Column 1</div>
+                                <div class="col-4 bg-secondary text-white p-2 rounded">Column 2</div>
+                                <div class="col-4 bg-success text-white p-2 rounded">Column 3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <h6>Fluid Layout</h6>
+                    <p class="text-muted">Full width container that spans the entire viewport.</p>
+                    <div class="border rounded p-3 bg-light">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-3 bg-info text-white p-2 rounded">Fluid 1</div>
+                                <div class="col-3 bg-warning text-white p-2 rounded">Fluid 2</div>
+                                <div class="col-3 bg-danger text-white p-2 rounded">Fluid 3</div>
+                                <div class="col-3 bg-dark text-white p-2 rounded">Fluid 4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <h5 class="card-header">Grid System</h5>
+            <div class="card-body">
+                <div class="mb-3">
+                    <h6>Responsive Grid</h6>
+                    <p class="text-muted">Bootstrap's responsive grid system with breakpoints.</p>
+                    <div class="border rounded p-3 bg-light">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4 bg-primary text-white p-2 rounded mb-2">Responsive</div>
+                            <div class="col-12 col-md-6 col-lg-4 bg-secondary text-white p-2 rounded mb-2">Grid</div>
+                            <div class="col-12 col-md-6 col-lg-4 bg-success text-white p-2 rounded mb-2">System</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <h6>Auto Layout</h6>
+                    <p class="text-muted">Columns automatically size based on content.</p>
+                    <div class="border rounded p-3 bg-light">
+                        <div class="row">
+                            <div class="col bg-primary text-white p-2 rounded">Auto</div>
+                            <div class="col bg-secondary text-white p-2 rounded">Size</div>
+                            <div class="col bg-success text-white p-2 rounded">Columns</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <h5 class="card-header">Spacing Utilities</h5>
+            <div class="card-body">
+                <div class="mb-3">
+                    <h6>Margin & Padding</h6>
+                    <p class="text-muted">Bootstrap spacing utilities for consistent spacing.</p>
+                    <div class="border rounded p-3 bg-light">
+                        <div class="bg-primary text-white p-3 mb-2">Padding 3</div>
+                        <div class="bg-secondary text-white p-2 mb-2">Padding 2</div>
+                        <div class="bg-success text-white p-1">Padding 1</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <h6>Responsive Spacing</h6>
+                    <p class="text-muted">Spacing that adapts to different screen sizes.</p>
+                    <div class="border rounded p-3 bg-light">
+                        <div class="bg-info text-white p-2 p-md-3 p-lg-4 rounded">
+                            Responsive Padding
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <h5 class="card-header">Flexbox Utilities</h5>
+            <div class="card-body">
+                <div class="mb-3">
+                    <h6>Flexbox Layout</h6>
+                    <p class="text-muted">Flexbox utilities for flexible layouts.</p>
+                    <div class="border rounded p-3 bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="bg-primary text-white p-2 rounded">Flex Item 1</span>
+                            <span class="bg-secondary text-white p-2 rounded">Flex Item 2</span>
+                            <span class="bg-success text-white p-2 rounded">Flex Item 3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <h6>Responsive Flexbox</h6>
+                    <p class="text-muted">Flexbox that changes behavior on different screens.</p>
+                    <div class="border rounded p-3 bg-light">
+                        <div class="d-flex flex-column flex-md-row">
+                            <span class="bg-warning text-white p-2 rounded mb-2 mb-md-0 me-md-2">Stacked on Mobile</span>
+                            <span class="bg-danger text-white p-2 rounded">Row on Desktop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <h5 class="card-header">Layout Examples</h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="bx bx-layout text-primary" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Container</h6>
+                                <small class="text-muted">Fixed width layout</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="bx bx-expand text-success" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Fluid</h6>
+                                <small class="text-muted">Full width layout</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="bx bx-grid text-warning" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Grid</h6>
+                                <small class="text-muted">Responsive grid system</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="bx bx-flex text-info" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Flexbox</h6>
+                                <small class="text-muted">Flexible layouts</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+{% block title %}Cards - Sneat Admin{% endblock %}
+
+{% block content %}
+<h4 class="py-3 mb-4">
+    <span class="text-muted fw-light">UI Elements /</span> Cards
+</h4>
+
+<div class="row">
+    <div class="col-lg-6 col-xl-4">
+        <div class="card mb-4">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="card-title m-0 me-2">Transactions</h5>
+                <div class="dropdown">
+                    <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-dots-vertical"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
+                        <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <ul class="p-0 m-0">
+                    <li class="d-flex mb-4">
+                        <div class="d-flex w-100 flex-wrap justify-content-between">
+                            <div class="me-2">
+                                <h6 class="mb-0">iPhone 13 Pro</h6>
+                                <small class="text-muted">iPhone 13 Pro</small>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">$899</h6>
+                                <small class="text-success">+$18</small>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="d-flex mb-4">
+                        <div class="d-flex w-100 flex-wrap justify-content-between">
+                            <div class="me-2">
+                                <h6 class="mb-0">MacBook Pro</h6>
+                                <small class="text-muted">MacBook Pro</small>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">$1,299</h6>
+                                <small class="text-danger">+$42</small>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="d-flex">
+                        <div class="d-flex w-100 flex-wrap justify-content-between">
+                            <div class="me-2">
+                                <h6 class="mb-0">AirPods Pro</h6>
+                                <small class="text-muted">AirPods Pro</small>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">$249</h6>
+                                <small class="text-success">+$12</small>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xl-4">
+        <div class="card mb-4">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="card-title m-0 me-2">Revenue Growth</h5>
+                <div class="dropdown">
+                    <button class="btn p-0" type="button" id="revenueGrowthID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-dots-vertical"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="revenueGrowthID">
+                        <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">
+                            <span class="avatar-initial rounded bg-label-primary">
+                                <i class="bx bx-dollar text-primary"></i>
+                            </span>
+                        </div>
+                        <div class="card-info">
+                            <h5 class="mb-0">$24,895</h5>
+                            <small>Sales</small>
+                        </div>
+                    </div>
+                    <h5 class="text-success mb-0">+68%</h5>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">
+                            <span class="avatar-initial rounded bg-label-success">
+                                <i class="bx bx-trending-up text-success"></i>
+                            </span>
+                        </div>
+                        <div class="card-info">
+                            <h5 class="mb-0">$8,549</h5>
+                            <small>Profit</small>
+                        </div>
+                    </div>
+                    <h5 class="text-success mb-0">+42%</h5>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">
+                            <span class="avatar-initial rounded bg-label-warning">
+                                <i class="bx bx-user text-warning"></i>
+                            </span>
+                        </div>
+                        <div class="card-info">
+                            <h5 class="mb-0">2,856</h5>
+                            <small>Customers</small>
+                        </div>
+                    </div>
+                    <h5 class="text-success mb-0">+18%</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xl-4">
+        <div class="card mb-4">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="card-title m-0 me-2">Sales Overview</h5>
+                <div class="dropdown">
+                    <button class="btn p-0" type="button" id="salesOverviewID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-dots-vertical"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="salesOverviewID">
+                        <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">
+                            <span class="avatar-initial rounded bg-label-info">
+                                <i class="bx bx-mobile-alt text-info"></i>
+                            </span>
+                        </div>
+                        <div class="card-info">
+                            <h5 class="mb-0">8,458</h5>
+                            <small>Mobile</small>
+                        </div>
+                    </div>
+                    <h5 class="text-success mb-0">+28%</h5>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">
+                            <span class="avatar-initial rounded bg-label-success">
+                                <i class="bx bx-desktop text-success"></i>
+                            </span>
+                        </div>
+                        <div class="card-info">
+                            <h5 class="mb-0">28.5k</h5>
+                            <small>Desktop</small>
+                        </div>
+                    </div>
+                    <h5 class="text-success mb-0">+48%</h5>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">
+                            <span class="avatar-initial rounded bg-label-warning">
+                                <i class="bx bx-tablet text-warning"></i>
+                            </span>
+                        </div>
+                        <div class="card-info">
+                            <h5 class="mb-0">1,258</h5>
+                            <small>Tablet</small>
+                        </div>
+                    </div>
+                    <h5 class="text-success mb-0">+18%</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="card-title m-0 me-2">Recent Orders</h5>
+                <div class="dropdown">
+                    <button class="btn p-0" type="button" id="recentOrdersID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-dots-vertical"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="recentOrdersID">
+                        <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive text-nowrap">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        <tr>
+                            <td><strong>#6976</strong></td>
+                            <td>Dec 12, 2023</td>
+                            <td><span class="badge bg-label-success me-1">Completed</span></td>
+                            <td>$35.50</td>
+                        </tr>
+                        <tr>
+                            <td><strong>#6975</strong></td>
+                            <td>Dec 11, 2023</td>
+                            <td><span class="badge bg-label-warning me-1">Pending</span></td>
+                            <td>$23.90</td>
+                        </tr>
+                        <tr>
+                            <td><strong>#6974</strong></td>
+                            <td>Dec 10, 2023</td>
+                            <td><span class="badge bg-label-danger me-1">Cancelled</span></td>
+                            <td>$65.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>#6973</strong></td>
+                            <td>Dec 09, 2023</td>
+                            <td><span class="badge bg-label-success me-1">Completed</span></td>
+                            <td>$78.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
